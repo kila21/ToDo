@@ -3,30 +3,21 @@
     <table>
         <thead>
             <tr>
-                <th>სახელი</th>
-                <th>გვარი</th>
-                <th>ტელეფონი</th>
-                <th>მეილი</th>
-                <th>კომპანია</th>
-                <th>პოსტები</th>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Company</th>
+                <th>Posts</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>luka</td>
-                <td>kilasonia</td>
-                <td>557542141</td>
-                <td>luka.kilasonia.1&#64;btu.edu.ge</td>
-                <td>No Company</td>
-                <td>Link.</td>
-            </tr>
-
-            <tr>
-                <td>luka</td>
-                <td>kilasonia</td>
-                <td>557542141</td>
-                <td>luka.kilasonia.</td>
-                <td>No Company</td>
+            <tr *ngFor="let user of users">
+                <td>{{user.name.split(' ')[0] }}</td>
+                <td>{{ user.name.split(' ')[1] }}</td>
+                <td>{{ user.phone}}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.company.name}}</td>
                 <td>Link.</td>
             </tr>
         </tbody>
