@@ -1,4 +1,31 @@
 
 .header {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    .logo {
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .date {
+        font-style: oblique;
+        font-size: 13px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.navigation {
+    display: flex;
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 0 10px;
+    a {
+        color: white;
+        margin-right: 15px;
+        letter-spacing: 1px;
+    }
 }
