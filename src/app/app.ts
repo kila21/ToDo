@@ -5,7 +5,7 @@ import { Table } from './components/table/table';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterModule, DatePipe, Table],
+  imports: [RouterOutlet, RouterModule, DatePipe],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
