@@ -1,0 +1,12 @@
+
+
+<div class="posts-container">
+    <h1>Here You Can See All Post of Users</h1>
+    <div class="posts">
+        <div *ngFor="let post of posts">
+            <app-post-card [title]="post.title" [id]="post.userId" [description]="post.body"></app-post-card>
+        </div>
+    </div>
+
+    <app-button [hidden]="hidden" (isClicked)="fetchPosts()"></app-button>
+</div>
