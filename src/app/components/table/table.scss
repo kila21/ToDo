@@ -24,3 +24,27 @@
         }
     }
 }
+
+.animated-link {
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #007bff;
+    transition: width 1.5s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &:hover {
+    color: #0056b3;
+  }
+}
