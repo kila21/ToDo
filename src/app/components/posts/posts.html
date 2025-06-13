@@ -1,12 +1,21 @@
 
-
 <div class="posts-container">
-    <h1>Here You Can See All Post of Users</h1>
-    <div class="posts">
-        <div *ngFor="let post of posts">
-            <app-post-card [title]="post.title" [id]="post.userId" [description]="post.body"></app-post-card>
-        </div>
-    </div>
+    <h2>All Post</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Post</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts">
+          <td>{{ users[post.userId -1].name }}</td>
+          <td (click)="getSelectedPost(post.title, post.body)" class="extra-style">{{ post.title }}</td>
+        </tr>
+    </tbody>
+</table>
 
+    <app-post-popup *ngIf="popup" [title]="selectedPost!.title" [description]="selectedPost!.body" (close)="togglePopup()"></app-post-popup>  
     <app-button [hidden]="hidden" (isClicked)="fetchPosts()"></app-button>
 </div>
