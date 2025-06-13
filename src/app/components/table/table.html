@@ -18,8 +18,12 @@
                 <td>{{ user.phone}}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.company.name}}</td>
-                <td>Link.</td>
+                <td>
+                    <a [routerLink]="['/posts', user.id]" [queryParams]="{name: user.name}">Click For Posts</a>
+                </td>
             </tr>
         </tbody>
     </table>
+
+    <app-button [hidden]="hidden" (isClicked)="fetchUsers()"></app-button>
 </div>
