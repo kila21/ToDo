@@ -4,5 +4,7 @@
     <img src="default.avif" alt="default image"/>
     <h3>{{ title.slice(0, 20) }}</h3>
     <p>{{ description.slice(0, 80) }}...</p>
-    <app-button name="Detail"></app-button>
+    <app-button (isClicked)="togglePopup()"  name="Detail"></app-button>
 </div>
+
+<app-post-popup *ngIf="popup" [title]="title" [description]="description" (close)="togglePopup()"></app-post-popup>
