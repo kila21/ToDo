@@ -17,5 +17,9 @@
   <a routerLink="/users">users</a>
   <a routerLink="/posts">posts</a>
 </nav>
+
+<div class="root-text" *ngIf="router.url == '/'">
+  Click Navigation Link To Display Data.
+</div>
 <br />
 <router-outlet />
