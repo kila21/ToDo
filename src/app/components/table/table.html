@@ -1,4 +1,9 @@
 
+<div class="search-container">
+    <h3>Search Users</h3>
+    <app-search (searchText)="FilteredUsers($event)"></app-search>
+</div>
+
 <div class="table-container">
     <table>
         <thead>
@@ -28,6 +33,4 @@
             </tr>
         </tbody>
     </table>
-
-    <app-button [hidden]="hidden" (isClicked)="fetchUsers()"></app-button>
 </div>

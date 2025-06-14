@@ -2,29 +2,41 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { UserResponse } from '../../types/UserResponse';
 import { User } from '../../services/user';
-import { Button } from '../button/button';
 import { RouterModule } from '@angular/router';
+import { Search } from '../search/search';
 
 @Component({
   selector: 'app-table',
-  imports: [CommonModule, Button, RouterModule],
+  imports: [CommonModule, RouterModule, Search],
   templateUrl: './table.html',
   styleUrl: './table.scss'
 })
 export class Table implements OnInit {
   users: UserResponse[] = []
-  hidden: boolean = false
-  dataLength: number = 0
+  usersCopy: UserResponse[] = []
 
   constructor(private userService: User) {}
 
+  async FilteredUsers(event: string) {
+    if(!event) {
+      this.users = this.usersCopy
+      return;
+    }
+
+    await this.userService.getUsers().subscribe((response: UserResponse[]) => {
+      const data = response.filter((user: UserResponse) => {
+        return user.name.toLowerCase().includes(event)
+        || user.phone.toLowerCase().includes(event) 
+        || user.email.toLocaleLowerCase().includes(event) 
+      })
+      this.users = data
+    })
+  }
+
   async fetchUsers() {
-    this.dataLength += 5
     await this.userService.getUsers().subscribe(data => {
-      if (data.length <= this.dataLength ) {
-          this.hidden = true
-      }
-      this.users = data.slice(0, this.dataLength)
+      this.users = data
+      this.usersCopy = data
     })
   }
 
