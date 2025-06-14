@@ -9,6 +9,7 @@
                 <th>Email</th>
                 <th>Company</th>
                 <th>Posts</th>
+                <th>ToDo</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,9 @@
                 <td>{{ user.company.name}}</td>
                 <td>
                     <a [routerLink]="['/posts', user.id]" [queryParams]="{name: user.name}" class="animated-link">Click For Posts</a>
+                </td>
+                <td class="animated-link">
+                    <a [routerLink]="['/todo', user.id]" [queryParams]="{name: user.name}">Click For ToDo</a>
                 </td>
             </tr>
         </tbody>
